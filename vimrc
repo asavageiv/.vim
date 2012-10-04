@@ -1,7 +1,8 @@
 " Let pathogen run as a bundle.
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+call pathogen#infect()
 
 syntax on
 source /usr/share/vim/google/google.vim
