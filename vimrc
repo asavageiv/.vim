@@ -4,6 +4,8 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 call pathogen#infect()
 
+" Remap list snippets
+let g:UltiSnipsListSnippets="<S-Tab>"
 syntax on
 source /usr/share/vim/google/google.vim
 " Show line numbers

@@ -1,0 +1,31 @@
+extends javascript
+snippet freg "Fava service register"
+/**
+ * @param {!fava.AppContext} appContext .
+ */
+${1:class_name}.register = function(appContext) {
+	var obj = new $1(appContext);
+	appContext.registerService($1.SERVICE_ID, obj);
+};
+endsnippet
+snippet fget "Fava service get"
+/**
+ * @param {!fava.AppContext} appContext .
+ * @return {!$1}
+ */
+${1:class_name}.get = function(appContext) {
+	return /** @type {!$1} */(
+			appContext.get($1.SERVICE_ID));
+};
+endsnippet
+snippet cl "Closure class definition"
+/**
+ * @constructor
+ * @extends {${2:base_class}}
+ */
+${1:class_name} = function() {
+	goog.base(this);
+	${3:// body}
+};
+goog.inherits($1, $2);
+endsnippet
