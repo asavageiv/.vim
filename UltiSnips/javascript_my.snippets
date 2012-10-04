@@ -29,3 +29,20 @@ ${1:class_name} = function() {
 };
 goog.inherits($1, $2);
 endsnippet
+snippet cproto "Closure prototype"
+/**
+ */
+${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
+	${0:// body...}
+};
+endsnippet
+snippet cfe "Closure library forEach"
+goog.array.forEach(${1:arr}, function(${2:ele}, ${3:ind}, ${4:arr}) {
+	${5:// body...}
+}, this);
+endsnippet
+snippet gtv "gcomm.test.verify"
+gcomm.test.verify(${1:mockControl}, function() {
+	${2:// body...}
+};
+endsnippet
