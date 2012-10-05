@@ -9,7 +9,10 @@ let g:UltiSnipsListSnippets="<S-Tab>"
 " Turn on syntax highlighting
 syntax on
 " Source google specific changes
-source /usr/share/vim/google/google.vim
+
+if filereadable("/usr/share/vim/google/google.vim")
+  source /usr/share/vim/google/google.vim
+endif
 " A few google specific settings from go/vim sites page.
 set expandtab
 set shiftwidth=2
