@@ -47,8 +47,6 @@ set laststatus=2
 " Highlight the status line of the active window.
 highlight StatusLine ctermfg=Cyan
 
-colorscheme darkblue
-
 " Edit test file and source file respectively
 map ,t :edit %:r_test.html
 map ,s :edit %:s/_test\.html/.js/

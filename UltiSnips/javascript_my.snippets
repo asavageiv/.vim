@@ -42,7 +42,50 @@ goog.array.forEach(${1:arr}, function(${2:ele}, ${3:ind}, ${4:arr}) {
 }, this);
 endsnippet
 snippet gtv "gcomm.test.verify"
-gcomm.test.verify(${1:mockControl}, function() {
+gcomm.test.verify(${1:mc}, function() {
 	${2:// body...}
-};
+});
+endsnippet
+snippet gr "goog.require" !b
+goog.require('$1');
+endsnippet
+snippet gp "goog.provide" !b
+goog.provide('$1');
+endsnippet
+snippet ctf "Closure test file" !b
+<!DOCTYPE html>
+<!--
+    Author: asavage@google.com (Alan Savage)
+-->
+<title>$1 Tests</title>
+<script src="${2:depth}/deps_html.js"></script>
+<script>
+goog.require('$1');
+goog.require('goog.testing.MockControl');
+</script>
+<script>
+
+var mc;
+var ${3:instance};
+
+function setUp() {
+  mc = new goog.testing.MockControl();
+
+  $3 = new $1();
+}
+
+function tearDown() {
+  gcomm.test.tearDownAndLeakCheck(mc, $3);
+}
+</script>
+endsnippet
+snippet tf "unit test function" !b
+function test$1() {
+}
+endsnippet
+snippet eae "expect any event" !b
+gcomm.test.events.expectAnyListeners($1);
+endsnippet
+snippet author "closure author"
+@author asavage@google.com (Alan Savage)
 endsnippet
