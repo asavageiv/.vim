@@ -31,9 +31,6 @@ set wildignore=blaze-*/**
 " See :help autoread
 set autoread
 
-" Enable the mouse for scrolling
-set mouse=a
-
 " Color columns past the textwidth
 set colorcolumn=+1
 
@@ -50,3 +47,9 @@ highlight StatusLine ctermfg=Cyan
 " Edit test file and source file respectively
 map ,t :edit %:r_test.html
 map ,s :edit %:s/_test\.html/.js/
+map ,b :edit %:p:h/BUILD
+
+" Configure CtrlP to use the current working directory as its path always.
+let g:ctrlp_working_path_mode='a'
+" Configure CtrlP to scan more files.
+let g:ctrlp_max_files = 100000
