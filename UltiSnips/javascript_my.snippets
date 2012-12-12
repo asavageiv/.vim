@@ -33,7 +33,7 @@ snippet cproto "Closure prototype"
 /**
  */
 ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
-	${0:// body...}
+	${4:// body}
 };
 endsnippet
 snippet cfe "Closure library forEach"
@@ -60,22 +60,28 @@ snippet ctf "Closure test file" !b
 <title>$1 Tests</title>
 <script src="${2:depth}/deps_html.js"></script>
 <script>
+goog.require('fava.AppContext');
 goog.require('$1');
+goog.require('gcomm.test');
 goog.require('goog.testing.MockControl');
 </script>
 <script>
 
 var mc;
+var ac;
 var ${3:instance};
 
 function setUp() {
   mc = new goog.testing.MockControl();
+  ac = new fava.AppContext();
 
-  $3 = new $1();
+  gcomm.test.verify(mc, function() {
+    $3 = new $1(ac);
+  });
 }
 
 function tearDown() {
-  gcomm.test.tearDownAndLeakCheck(mc, $3);
+  gcomm.test.tearDownAndLeakCheck(mc, $3, ac);
 }
 </script>
 endsnippet
@@ -88,4 +94,8 @@ gcomm.test.events.expectAnyListeners($1);
 endsnippet
 snippet author "closure author"
 @author asavage@google.com (Alan Savage)
+endsnippet
+snippet handler "new event handler" !b
+var handler = new goog.events.EventHandler(this);
+this.registerDisposable(handler);
 endsnippet
