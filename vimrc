@@ -53,3 +53,33 @@ map ,b :edit %:p:h/BUILD
 let g:ctrlp_working_path_mode='a'
 " Configure CtrlP to scan more files.
 let g:ctrlp_max_files = 100000
+" Configure CtrlP to only scan the directories I care about for citc clients.
+let g:ctrlp_user_command = 'echo %s > /dev/null; find videoconf/gvc java/com/google/buzz buzz/ production/config/cdd/buzz experimental/users/asavage javascript/apps/gcomm javascript/apps/chat javascript/apps/realtime javascript/closure -type f -not -name ".*"' 
+
+" Commands for code reviews.
+command! Comments cexpr system("git5 comments --quickfix")
+command! UnrepliedComments cexpr system("git5 comments --quickfix --unreplied-only")
+command! Lint cexpr system("git5 lint --quickfix")
+
+if filereadable("/usr/share/vim/google/runtime/util/piper_tools.vim")
+  source /usr/share/vim/google/runtime/util/piper_tools.vim
+endif
+
+" perforce commands
+command! -nargs=* -complete=file PEdit :!g4 edit %
+command! -nargs=* -complete=file PRevert :!g4 revert %
+command! -nargs=* -complete=file PDiff :!g4 diff %
+
+function! s:CheckOutFile()
+ if filereadable(expand("%")) && ! filewritable(expand("%"))
+   let s:pos = getpos('.')
+   let option = confirm("Readonly file, do you want to checkout from p4?"
+         \, "&Yes\n&No", 1, "Question")
+   if option == 1
+     PEdit
+   endif
+   edit!
+   call cursor(s:pos[1:3])
+ endif
+endfunction
+au FileChangedRO * nested :call <SID>CheckOutFile()
