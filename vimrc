@@ -54,7 +54,7 @@ let g:ctrlp_working_path_mode='a'
 " Configure CtrlP to scan more files.
 let g:ctrlp_max_files = 100000
 " Configure CtrlP to only scan the directories I care about for citc clients.
-let g:ctrlp_user_command = 'echo %s > /dev/null; find videoconf/gvc java/com/google/buzz buzz/ production/config/cdd/buzz experimental/users/asavage javascript/apps/gcomm javascript/apps/chat javascript/apps/realtime javascript/closure -type f -not -name ".*"' 
+let g:ctrlp_user_command = 'echo %s > /dev/null; find videoconf/gvc java/com/google/buzz javatests/com/google/buzz buzz/ production/config/cdd/buzz experimental/users/asavage javascript/apps/fava javascript/apps/gcomm javascript/apps/chat javascript/apps/realtime javascript/closure video/youtube/hangouts video/youtube/music/hangouts -type f -not -name ".*"' 
 
 " Commands for code reviews.
 command! Comments cexpr system("git5 comments --quickfix")
