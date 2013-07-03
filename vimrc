@@ -1,6 +1,6 @@
 " Let pathogen run as a bundle.
 runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 call pathogen#infect()
 
