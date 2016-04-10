@@ -1,13 +1,6 @@
-" Let pathogen run as a bundle.
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#incubate()
-call pathogen#helptags()
-call pathogen#infect()
-
-" Remap list snippets
-let g:UltiSnipsListSnippets="<S-Tab>"
 " Turn on syntax highlighting
 syntax on
+
 " Source google specific changes
 
 if filereadable("/usr/share/vim/google/google.vim")
@@ -48,13 +41,6 @@ highlight StatusLine ctermfg=Cyan
 map ,t :edit %:r_test.html
 map ,s :edit %:s/_test\.html/.js/
 map ,b :edit %:p:h/BUILD
-
-" Configure CtrlP to use the current working directory as its path always.
-let g:ctrlp_working_path_mode='a'
-" Configure CtrlP to scan more files.
-let g:ctrlp_max_files = 100000
-" Configure CtrlP to only scan the directories I care about for citc clients.
-let g:ctrlp_user_command = 'echo %s > /dev/null; find videoconf/gvc java/com/google/buzz javatests/com/google/buzz buzz/ production/config/cdd/buzz experimental/users/asavage javascript/apps/fava javascript/apps/gcomm javascript/apps/chat javascript/apps/realtime javascript/closure video/youtube/hangouts video/youtube/music/hangouts -type f -not -name ".*"' 
 
 " Commands for code reviews.
 command! Comments cexpr system("git5 comments --quickfix")
