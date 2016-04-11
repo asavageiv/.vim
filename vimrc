@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'elzr/vim-json.git'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'asavage/vim-clang-format'
+Plugin 'rhysd/vim-clang-format'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
